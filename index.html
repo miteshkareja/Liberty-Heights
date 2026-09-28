@@ -152,8 +152,8 @@ h2{
   position:absolute;
   z-index:3;
   top:28px;
-  left:50%;
-  transform:translateX(-50%);
+  left:max(23px, calc((100% - 1180px) / 2));
+  transform:none;
 }
 
 .hero-top-logo img{
@@ -1134,7 +1134,9 @@ select.form-control option{
   }
 
   .hero-top-logo{
-    top:20px;
+    top:18px;
+    left:15px;
+    transform:none;
   }
 
   .hero-top-logo img{
@@ -1331,8 +1333,7 @@ select.form-control option{
     muted
     loop
     playsinline
-    preload="metadata"
-    poster="Liberty_Heights_Tower_Exterior.png">
+    preload="auto">
 
     <source src="hero.mp4" type="video/mp4">
 
@@ -2645,54 +2646,48 @@ floor plans and site visit details.
 
 <input
 id="name"
+name="name"
 class="form-control"
 type="text"
 placeholder="Your Name"
+autocomplete="name"
 required>
 
 <input
 id="phone"
+name="phone"
 class="form-control"
 type="tel"
-placeholder="Mobile Number"
+inputmode="numeric"
+maxlength="10"
+pattern="[6-9][0-9]{9}"
+placeholder="10 Digit Mobile Number"
+autocomplete="tel"
 required>
 
 <select
 id="interest"
+name="interest"
 class="form-control">
 
-<option value="">
-I'm interested in
-</option>
-
-<option>
-1 BHK - 408 Sq. Ft.
-</option>
-
-<option>
-1 BHK - 423 Sq. Ft.
-</option>
-
-<option>
-2 BHK - 640 Sq. Ft.
-</option>
-
-<option>
-2 BHK - 705 Sq. Ft.
-</option>
-
-<option>
-Site Visit
-</option>
+<option value="">I'm interested in</option>
+<option value="1 BHK - 408 Sq. Ft.">1 BHK - 408 Sq. Ft.</option>
+<option value="1 BHK - 423 Sq. Ft.">1 BHK - 423 Sq. Ft.</option>
+<option value="2 BHK - 640 Sq. Ft.">2 BHK - 640 Sq. Ft.</option>
+<option value="2 BHK - 705 Sq. Ft.">2 BHK - 705 Sq. Ft.</option>
+<option value="Site Visit">Site Visit</option>
+<option value="Price & Availability">Price & Availability</option>
 
 </select>
 
-
 <button
 type="submit"
-class="submit">
+class="submit"
+id="submitLead">
 Get Project Details →
 </button>
+
+<div id="formStatus" style="display:none;margin-top:12px;font-size:12px;text-align:center;"></div>
 
 </form>
 
@@ -2913,27 +2908,58 @@ document.body.style.overflow="";
 
 
 /* =====================================
-   FORM -> WHATSAPP
+   FORM -> GOOGLE SHEET + WHATSAPP
 ===================================== */
 
-document.getElementById("leadForm")
-.addEventListener("submit",function(e){
+const GOOGLE_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwWzbBq_YQAcM4N5jHzmVK4U2Db3u7E_N-2ACdjNxqjkbOxYVlp22F8JVtnw_coMhd8Vw/exec";
 
-e.preventDefault();
+const leadForm = document.getElementById("leadForm");
+const submitLead = document.getElementById("submitLead");
+const formStatus = document.getElementById("formStatus");
 
-const name=
-document.getElementById("name").value;
+leadForm.addEventListener("submit", async function(e){
 
-const phone=
-document.getElementById("phone").value;
+  e.preventDefault();
 
-const interest=
-document.getElementById("interest").value;
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.replace(/\D/g,"").trim();
+  const interest = document.getElementById("interest").value;
 
+  if(!/^[6-9]\d{9}$/.test(phone)){
+    formStatus.style.display = "block";
+    formStatus.style.color = "#ffb4b4";
+    formStatus.textContent = "Please enter a valid 10-digit mobile number.";
+    return;
+  }
 
-const message=`
+  const originalButtonText = submitLead.innerHTML;
+  submitLead.disabled = true;
+  submitLead.innerHTML = "Submitting...";
+  formStatus.style.display = "block";
+  formStatus.style.color = "#ead19f";
+  formStatus.textContent = "Submitting your enquiry...";
 
-Hello,
+  const leadData = {
+    name: name,
+    phone: phone,
+    interest: interest || "Project Details",
+    source: "Liberty Heights Landing Page",
+    pageUrl: window.location.href
+  };
+
+  try{
+    await fetch(GOOGLE_SCRIPT_URL,{
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(leadData)
+    });
+
+    formStatus.style.color = "#b8e8c8";
+    formStatus.textContent = "Thank you! Your enquiry has been submitted.";
+
+    const message = `Hello,
 
 I am interested in Liberty Heights, Malad West.
 
@@ -2941,22 +2967,27 @@ Name: ${name}
 Mobile: ${phone}
 Interested In: ${interest || "Project Details"}
 
-Please share latest pricing and availability.
+Please share latest pricing and availability.`;
 
-`;
+    setTimeout(()=>{
+      window.open(
+        "https://wa.me/919833785337?text=" + encodeURIComponent(message),
+        "_blank"
+      );
+      leadForm.reset();
+      closeModal();
+      submitLead.disabled = false;
+      submitLead.innerHTML = originalButtonText;
+      formStatus.style.display = "none";
+    },700);
 
-
-window.open(
-
-"https://wa.me/919833785337?text="+
-encodeURIComponent(message),
-
-"_blank"
-
-);
-
-closeModal();
-
+  }catch(error){
+    console.error("Lead submission error:",error);
+    formStatus.style.color = "#ffb4b4";
+    formStatus.textContent = "Unable to submit. Please call or WhatsApp us.";
+    submitLead.disabled = false;
+    submitLead.innerHTML = originalButtonText;
+  }
 });
 
 
