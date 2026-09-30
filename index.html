@@ -124,6 +124,105 @@ h2{
 }
 
 /* ===========================
+   FIXED HEADER
+=========================== */
+
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:950;
+  height:78px;
+  background:rgba(3,14,11,.88);
+  border-bottom:1px solid rgba(201,167,106,.18);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+
+.header-inner{
+  width:min(1180px,calc(100% - 46px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.header-logo{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+}
+
+.header-logo img{
+  width:118px;
+  max-height:58px;
+  object-fit:contain;
+}
+
+.header-nav{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.header-nav a{
+  color:rgba(255,255,255,.78);
+  font-size:11px;
+  font-weight:600;
+  transition:.25s;
+  white-space:nowrap;
+}
+
+.header-nav a:hover{
+  color:var(--gold2);
+}
+
+.header-visit{
+  flex:0 0 auto;
+  min-height:42px;
+  padding:0 19px;
+  border:0;
+  border-radius:50px;
+  background:var(--gold);
+  color:#102019;
+  font-size:11px;
+  font-weight:700;
+  white-space:nowrap;
+  transition:.25s;
+}
+
+.header-visit:hover{
+  background:var(--gold2);
+  transform:translateY(-1px);
+}
+
+.header-menu-btn{
+  display:none;
+  width:40px;
+  height:40px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:50%;
+  background:rgba(255,255,255,.04);
+  color:white;
+  font-size:20px;
+  line-height:1;
+}
+
+#overview,
+#residences,
+#interiors,
+#amenities,
+#floorplans,
+#gallery,
+#location,
+#developer{
+  scroll-margin-top:92px;
+}
+
+/* ===========================
    HERO
 =========================== */
 
@@ -1127,6 +1226,76 @@ select.form-control option{
 
 @media(max-width:650px){
 
+  .site-header{
+    height:68px;
+  }
+
+  .header-inner{
+    width:calc(100% - 24px);
+    gap:9px;
+  }
+
+  .header-logo img{
+    width:88px;
+    max-height:48px;
+  }
+
+  .header-visit{
+    margin-left:auto;
+    min-height:38px;
+    padding:0 13px;
+    font-size:10px;
+  }
+
+  .header-menu-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 auto;
+  }
+
+  .header-nav{
+    display:none;
+    position:absolute;
+    top:68px;
+    left:12px;
+    right:12px;
+    margin:0;
+    padding:10px;
+    border:1px solid rgba(201,167,106,.18);
+    border-radius:14px;
+    background:rgba(3,14,11,.97);
+    box-shadow:0 18px 45px rgba(0,0,0,.28);
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+  }
+
+  .header-nav.show{
+    display:flex;
+  }
+
+  .header-nav a{
+    padding:12px 10px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    font-size:11px;
+  }
+
+  .header-nav a:last-child{
+    border-bottom:0;
+  }
+
+  #overview,
+  #residences,
+  #interiors,
+  #amenities,
+  #floorplans,
+  #gallery,
+  #location,
+  #developer{
+    scroll-margin-top:80px;
+  }
+
   .container{
     width:calc(100% - 30px);
   }
@@ -1338,10 +1507,41 @@ select.form-control option{
 <body>
 
 <!-- ======================================================
- HERO - NO HEADER / NO NAVBAR
+ FIXED HEADER
 ====================================================== -->
 
-<section class="hero">
+<header class="site-header">
+  <div class="header-inner">
+
+    <a href="#home" class="header-logo" aria-label="Liberty Heights Home">
+      <img src="Urjha_Realty_Logo.png" alt="Urjha Realty">
+    </a>
+
+    <nav class="header-nav" id="headerNav" aria-label="Primary navigation">
+      <a href="#overview">Overview</a>
+      <a href="#residences">Residences</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#floorplans">Floor Plans</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#location">Location</a>
+    </nav>
+
+    <button class="header-visit" type="button" onclick="openModal()">
+      Book a Site Visit
+    </button>
+
+    <button class="header-menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" onclick="toggleHeaderNav(this)">
+      ☰
+    </button>
+
+  </div>
+</header>
+
+<!-- ======================================================
+ HERO
+====================================================== -->
+
+<section class="hero" id="home">
 
   <video
     class="hero-video"
@@ -1356,13 +1556,6 @@ select.form-control option{
   </video>
 
   <div class="hero-overlay"></div>
-
-  <!-- URJHA LOGO -->
-  <div class="hero-top-logo">
-    <img
-      src="Urjha_Realty_Logo.png"
-      alt="Urjha Realty">
-  </div>
 
   <div class="container">
 
@@ -1475,7 +1668,7 @@ select.form-control option{
  OVERVIEW
 ====================================================== -->
 
-<section class="section">
+<section class="section" id="overview">
 
 <div class="container">
 
@@ -1559,7 +1752,7 @@ together to create an elevated urban living experience.
  1 BHK + 2 BHK CONFIGURATION
 ====================================================== -->
 
-<section class="section config-section">
+<section class="section config-section" id="residences">
 
 <div class="container">
 
@@ -1704,7 +1897,7 @@ Please contact the sales team for current inventory and final pricing.
  RESIDENCE EXPERIENCE
 ====================================================== -->
 
-<section class="section">
+<section class="section" id="interiors">
 
 <div class="container">
 
@@ -1798,7 +1991,7 @@ Artist's Impression
  AMENITIES WITH ALL AVAILABLE IMAGE PATHS
 ====================================================== -->
 
-<section class="section amenities">
+<section class="section amenities" id="amenities">
 
 <div class="container">
 
@@ -2217,7 +2410,7 @@ Enquire About This Floor
  GALLERY - ALL IMAGE SOURCES
 ====================================================== -->
 
-<section class="section">
+<section class="section" id="gallery">
 
 <div class="container">
 
@@ -2368,7 +2561,7 @@ Parking
  LOCATION
 ====================================================== -->
 
-<section class="section location">
+<section class="section location" id="location">
 
 <div class="container">
 
@@ -2462,7 +2655,7 @@ Get Directions →
  URJHA REALTY
 ====================================================== -->
 
-<section class="section developer">
+<section class="section developer" id="developer">
 
 <div class="container">
 
@@ -2532,7 +2725,7 @@ Malad West starting from ₹1.50 Cr*.
 
 <button
 class="btn btn-gold"
-onclick="openModal('Site Visit')">
+onclick="openModal()">
 Schedule Site Visit
 </button>
 
@@ -2691,8 +2884,6 @@ class="form-control">
 <option value="1 BHK - 423 Sq. Ft.">1 BHK - 423 Sq. Ft.</option>
 <option value="2 BHK - 640 Sq. Ft.">2 BHK - 640 Sq. Ft.</option>
 <option value="2 BHK - 705 Sq. Ft.">2 BHK - 705 Sq. Ft.</option>
-<option value="Site Visit">Site Visit</option>
-<option value="Price & Availability">Price & Availability</option>
 
 </select>
 
@@ -2865,6 +3056,21 @@ document.querySelector(".floor-tab")
 const modal=
 document.getElementById("modal");
 
+
+function toggleHeaderNav(button){
+  const nav = document.getElementById("headerNav");
+  const isOpen = nav.classList.toggle("show");
+  button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+document.querySelectorAll("#headerNav a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    const nav = document.getElementById("headerNav");
+    const button = document.querySelector(".header-menu-btn");
+    nav.classList.remove("show");
+    if(button) button.setAttribute("aria-expanded","false");
+  });
+});
 
 function openModal(value=""){
 
