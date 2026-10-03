@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071713">
+<meta name="theme-color" content="#FAF6EF">
 
 <link rel="icon" type="image/png" href="Urjha_Realty_Logo.png">
 <link rel="shortcut icon" type="image/png" href="Urjha_Realty_Logo.png">
@@ -21,16 +21,20 @@ content="Liberty Heights, Liberty Garden, Malad West. Premium 1 & 2 BHK residenc
 <style>
 
 :root{
-  --dark:#061411;
-  --dark2:#0a1d18;
-  --dark3:#102720;
-  --gold:#c9a76a;
-  --gold2:#ead19f;
-  --cream:#f6f1e8;
-  --white:#fff;
-  --muted:#aab8b3;
-  --line:rgba(201,167,106,.22);
+  --bg:#FAF6EF;
+  --bg2:#F3EDE0;
+  --bg3:#EDE5D3;
+  --card:#FFFFFF;
+  --ink:#1A2E26;
+  --ink2:#2A4038;
+  --muted:#5F6E66;
+  --gold:#A8803A;
+  --gold2:#8C6A2E;
+  --gold3:#C9A76A;
+  --line:rgba(168,128,58,.28);
+  --line2:rgba(26,46,38,.10);
   --radius:22px;
+  --shadow:0 20px 60px rgba(26,46,38,.08);
 }
 
 *{
@@ -45,8 +49,8 @@ html{
 
 body{
   font-family:"DM Sans",sans-serif;
-  background:var(--dark);
-  color:white;
+  background:var(--bg);
+  color:var(--ink);
   line-height:1.6;
   overflow-x:hidden;
 }
@@ -134,8 +138,8 @@ h2{
   right:0;
   z-index:950;
   height:78px;
-  background:rgba(3,14,11,.88);
-  border-bottom:1px solid rgba(201,167,106,.18);
+  background:rgba(250,246,239,.92);
+  border-bottom:1px solid rgba(168,128,58,.22);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
 }
@@ -169,7 +173,7 @@ h2{
 }
 
 .header-nav a{
-  color:rgba(255,255,255,.78);
+  color:rgba(26,46,38,.72);
   font-size:11px;
   font-weight:600;
   transition:.25s;
@@ -177,7 +181,7 @@ h2{
 }
 
 .header-nav a:hover{
-  color:var(--gold2);
+  color:var(--gold);
 }
 
 .header-visit{
@@ -187,7 +191,7 @@ h2{
   border:0;
   border-radius:50px;
   background:var(--gold);
-  color:#102019;
+  color:#fff;
   font-size:11px;
   font-weight:700;
   white-space:nowrap;
@@ -203,10 +207,10 @@ h2{
   display:none;
   width:40px;
   height:40px;
-  border:1px solid rgba(255,255,255,.16);
+  border:1px solid rgba(26,46,38,.18);
   border-radius:50%;
-  background:rgba(255,255,255,.04);
-  color:white;
+  background:rgba(26,46,38,.04);
+  color:var(--ink);
   font-size:20px;
   line-height:1;
 }
@@ -247,8 +251,8 @@ h2{
   position:absolute;
   inset:0;
   background:
-  linear-gradient(90deg,rgba(2,12,9,.88),rgba(2,12,9,.48) 48%,rgba(2,12,9,.12)),
-  linear-gradient(0deg,rgba(2,12,9,.95),transparent 58%);
+  linear-gradient(90deg,rgba(250,246,239,.92),rgba(250,246,239,.55) 48%,rgba(250,246,239,.15)),
+  linear-gradient(0deg,rgba(250,246,239,.95),transparent 58%);
 }
 
 .hero-top-logo{
@@ -274,21 +278,23 @@ h2{
 
 .hero-label{
   display:inline-block;
-  border:1px solid rgba(201,167,106,.5);
-  background:rgba(0,0,0,.22);
+  border:1px solid rgba(168,128,58,.5);
+  background:rgba(255,255,255,.55);
   backdrop-filter:blur(10px);
   padding:8px 15px;
   border-radius:50px;
-  color:var(--gold2);
+  color:var(--gold);
   letter-spacing:2px;
   text-transform:uppercase;
   font-size:10px;
+  font-weight:700;
   margin-bottom:22px;
 }
 
 .hero h1{
   font-size:clamp(57px,8vw,105px);
   letter-spacing:-3px;
+  color:var(--ink);
 }
 
 .hero h1 span{
@@ -298,12 +304,12 @@ h2{
 .hero-subtitle{
   font-family:"Playfair Display",serif;
   font-size:clamp(20px,3vw,31px);
-  color:#eee5d4;
+  color:var(--ink2);
   margin:10px 0 14px;
 }
 
 .hero-location{
-  color:rgba(255,255,255,.7);
+  color:rgba(26,46,38,.65);
   margin-bottom:28px;
   font-size:14px;
 }
@@ -316,7 +322,7 @@ h2{
 
 .hero-stat{
   padding:0 25px;
-  border-right:1px solid rgba(255,255,255,.2);
+  border-right:1px solid rgba(26,46,38,.15);
 }
 
 .hero-stat:first-child{
@@ -330,6 +336,7 @@ h2{
 .hero-stat strong{
   display:block;
   font-size:18px;
+  color:var(--ink);
 }
 
 .hero-stat small{
@@ -360,7 +367,7 @@ h2{
 
 .btn-gold{
   background:var(--gold);
-  color:#102019;
+  color:#fff;
 }
 
 .btn-gold:hover{
@@ -369,9 +376,9 @@ h2{
 }
 
 .btn-outline{
-  border:1px solid rgba(255,255,255,.4);
-  color:white;
-  background:rgba(255,255,255,.04);
+  border:1px solid rgba(26,46,38,.3);
+  color:var(--ink);
+  background:rgba(255,255,255,.5);
   backdrop-filter:blur(8px);
 }
 
@@ -393,17 +400,17 @@ h2{
 .quick-grid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  background:#10251f;
+  background:var(--card);
   border:1px solid var(--line);
   border-radius:20px;
   overflow:hidden;
-  box-shadow:0 25px 70px rgba(0,0,0,.3);
+  box-shadow:var(--shadow);
 }
 
 .quick-item{
   padding:28px 12px;
   text-align:center;
-  border-right:1px solid rgba(255,255,255,.07);
+  border-right:1px solid var(--line2);
 }
 
 .quick-item:last-child{
@@ -411,7 +418,7 @@ h2{
 }
 
 .quick-item strong{
-  color:var(--gold2);
+  color:var(--gold);
   display:block;
   font-size:18px;
 }
@@ -438,6 +445,7 @@ h2{
   position:relative;
   overflow:hidden;
   border-radius:var(--radius);
+  box-shadow:var(--shadow);
 }
 
 .image-wrap img{
@@ -449,14 +457,14 @@ h2{
   position:absolute;
   bottom:15px;
   left:15px;
-  background:rgba(0,0,0,.6);
+  background:rgba(26,46,38,.65);
   backdrop-filter:blur(8px);
   border-radius:30px;
   padding:6px 11px;
   font-size:8px;
   text-transform:uppercase;
   letter-spacing:1px;
-  color:#ddd;
+  color:#eee;
 }
 
 .overview-copy p{
@@ -473,10 +481,11 @@ h2{
 
 .feature{
   border:1px solid var(--line);
-  background:rgba(255,255,255,.025);
+  background:rgba(255,255,255,.6);
   padding:16px;
   border-radius:13px;
   font-size:12px;
+  color:var(--ink2);
 }
 
 .feature b{
@@ -489,20 +498,20 @@ h2{
 =========================== */
 
 .config-section{
-  background:var(--cream);
-  color:#15251f;
+  background:var(--bg2);
+  color:var(--ink);
 }
 
 .config-section .section-heading p{
-  color:#68756f;
+  color:var(--muted);
 }
 
 .config-section .eyebrow{
-  color:#95703a;
+  color:var(--gold);
 }
 
 .config-section .eyebrow:before{
-  background:#95703a;
+  background:var(--gold);
 }
 
 .config-grid{
@@ -512,8 +521,8 @@ h2{
 }
 
 .config-card{
-  background:white;
-  border:1px solid #e4ddd1;
+  background:var(--card);
+  border:1px solid var(--line2);
   border-radius:18px;
   padding:28px 23px;
   transition:.3s;
@@ -521,26 +530,28 @@ h2{
 
 .config-card:hover{
   transform:translateY(-5px);
-  box-shadow:0 20px 50px rgba(0,0,0,.08);
+  box-shadow:0 20px 50px rgba(26,46,38,.1);
 }
 
 .config-type{
-  color:#956f37;
+  color:var(--gold);
   text-transform:uppercase;
   letter-spacing:2px;
   font-size:10px;
+  font-weight:700;
 }
 
 .config-card h3{
   font-size:31px;
   margin:10px 0 17px;
+  color:var(--ink);
 }
 
 .carpet{
-  border-top:1px solid #eee8dd;
-  border-bottom:1px solid #eee8dd;
+  border-top:1px solid var(--line2);
+  border-bottom:1px solid var(--line2);
   padding:12px 0;
-  color:#6d7772;
+  color:var(--muted);
   font-size:12px;
 }
 
@@ -548,6 +559,7 @@ h2{
   font-family:"Playfair Display",serif;
   font-size:26px;
   margin-top:18px;
+  color:var(--gold);
 }
 
 .config-card button{
@@ -555,14 +567,16 @@ h2{
   margin-top:20px;
   padding:12px;
   border-radius:50px;
-  border:1px solid #ae8448;
-  color:#815f2f;
-  background:white;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  background:transparent;
+  font-weight:600;
+  transition:.3s;
 }
 
 .config-card button:hover{
-  color:white;
-  background:#ae8448;
+  color:#fff;
+  background:var(--gold);
 }
 
 /* ===========================
@@ -580,6 +594,7 @@ h2{
   position:relative;
   border-radius:18px;
   overflow:hidden;
+  box-shadow:var(--shadow);
 }
 
 .residence-card:first-child{
@@ -599,7 +614,7 @@ h2{
 .card-gradient{
   position:absolute;
   inset:0;
-  background:linear-gradient(0deg,rgba(0,0,0,.8),transparent 55%);
+  background:linear-gradient(0deg,rgba(26,46,38,.75),transparent 55%);
 }
 
 .card-copy{
@@ -611,15 +626,14 @@ h2{
 
 .card-copy h3{
   font-size:27px;
+  color:#fff;
 }
 
 .card-copy p{
   font-size:11px;
-  color:#ddd;
+  color:rgba(255,255,255,.85);
 }
 
-/* FIX: Artist badge on residence cards moved to bottom-right
-   so it no longer overlaps the card-copy text */
 .residence-card .artist{
   left:auto;
   right:15px;
@@ -630,7 +644,7 @@ h2{
 =========================== */
 
 .amenities{
-  background:#091b17;
+  background:var(--bg2);
 }
 
 .amenities-showcase{
@@ -647,7 +661,8 @@ h2{
   border:1px solid var(--line);
   border-radius:22px;
   overflow:hidden;
-  background:#10251f;
+  background:var(--card);
+  box-shadow:var(--shadow);
 }
 
 .amenity-feature.reverse{
@@ -684,11 +699,13 @@ h2{
   font-size:10px;
   letter-spacing:3px;
   margin-bottom:16px;
+  font-weight:700;
 }
 
 .amenity-copy h3{
   font-size:40px;
   margin-bottom:15px;
+  color:var(--ink);
 }
 
 .amenity-copy p{
@@ -704,11 +721,12 @@ h2{
 }
 
 .tags span{
-  border:1px solid rgba(201,167,106,.25);
-  color:#d8c49c;
+  border:1px solid rgba(168,128,58,.35);
+  color:var(--gold);
   border-radius:30px;
   padding:7px 11px;
   font-size:9px;
+  background:rgba(168,128,58,.06);
 }
 
 .all-title{
@@ -720,10 +738,12 @@ h2{
   letter-spacing:3px;
   text-transform:uppercase;
   font-size:9px;
+  font-weight:700;
 }
 
 .all-title h3{
   font-size:32px;
+  color:var(--ink);
 }
 
 .amenity-grid{
@@ -733,11 +753,17 @@ h2{
 }
 
 .amenity-small{
-  border:1px solid rgba(201,167,106,.16);
-  background:rgba(255,255,255,.025);
+  border:1px solid var(--line2);
+  background:var(--card);
   border-radius:15px;
   padding:24px 18px;
   min-height:135px;
+  transition:.3s;
+}
+
+.amenity-small:hover{
+  border-color:var(--line);
+  transform:translateY(-3px);
 }
 
 .amenity-small .icon{
@@ -748,6 +774,7 @@ h2{
 .amenity-small h3{
   font-family:"DM Sans",sans-serif;
   font-size:13px;
+  color:var(--ink);
 }
 
 .amenity-small p{
@@ -761,20 +788,20 @@ h2{
 =========================== */
 
 .floor-section{
-  background:var(--cream);
-  color:#14251f;
+  background:var(--bg);
+  color:var(--ink);
 }
 
 .floor-section .eyebrow{
-  color:#936e39;
+  color:var(--gold);
 }
 
 .floor-section .eyebrow:before{
-  background:#936e39;
+  background:var(--gold);
 }
 
 .floor-section .section-heading p{
-  color:#68756f;
+  color:var(--muted);
 }
 
 .floor-tabs{
@@ -785,34 +812,41 @@ h2{
 }
 
 .floor-tab{
-  border:1px solid #d2c4ac;
+  border:1px solid rgba(168,128,58,.35);
   background:transparent;
   padding:11px 18px;
   border-radius:50px;
-  color:#46534e;
+  color:var(--ink2);
   font-size:11px;
   font-weight:600;
+  transition:.3s;
+}
+
+.floor-tab:hover{
+  border-color:var(--gold);
+  color:var(--gold);
 }
 
 .floor-tab.active{
-  background:#16352d;
-  color:white;
-  border-color:#16352d;
+  background:var(--gold);
+  color:#fff;
+  border-color:var(--gold);
 }
 
 .floor-box{
   display:grid;
   grid-template-columns:1fr .42fr;
   gap:35px;
-  background:white;
-  border:1px solid #e3ddd1;
+  background:var(--card);
+  border:1px solid var(--line2);
   border-radius:20px;
   padding:22px;
+  box-shadow:var(--shadow);
 }
 
 .floor-image{
   min-height:540px;
-  background:#071916;
+  background:#F0EAE0;
   border-radius:14px;
   display:flex;
   align-items:center;
@@ -832,10 +866,11 @@ h2{
 .floor-info h3{
   font-size:35px;
   margin-bottom:12px;
+  color:var(--ink);
 }
 
 .floor-info > p{
-  color:#6b7771;
+  color:var(--muted);
   font-size:12px;
   margin-bottom:20px;
 }
@@ -844,12 +879,16 @@ h2{
   display:flex;
   justify-content:space-between;
   padding:12px 0;
-  border-bottom:1px solid #eee8de;
+  border-bottom:1px solid var(--line2);
   font-size:12px;
 }
 
+.floor-row strong{
+  color:var(--ink);
+}
+
 .bhk-label{
-  color:#98713a;
+  color:var(--gold);
   font-size:9px;
   text-transform:uppercase;
   letter-spacing:1px;
@@ -871,6 +910,7 @@ h2{
   overflow:hidden;
   position:relative;
   cursor:pointer;
+  box-shadow:var(--shadow);
 }
 
 .gallery img{
@@ -887,10 +927,12 @@ h2{
   position:absolute;
   bottom:12px;
   left:12px;
-  background:rgba(0,0,0,.62);
+  background:rgba(26,46,38,.7);
+  backdrop-filter:blur(6px);
   border-radius:30px;
   padding:6px 10px;
   font-size:9px;
+  color:#fff;
 }
 
 /* ===========================
@@ -898,7 +940,7 @@ h2{
 =========================== */
 
 .location{
-  background:#0b201a;
+  background:var(--bg2);
 }
 
 .location-grid{
@@ -916,8 +958,9 @@ h2{
   display:flex;
   justify-content:space-between;
   padding:16px 0;
-  border-bottom:1px solid rgba(255,255,255,.09);
+  border-bottom:1px solid rgba(26,46,38,.1);
   font-size:13px;
+  color:var(--ink2);
 }
 
 .connect b{
@@ -929,6 +972,7 @@ h2{
   border-radius:20px;
   overflow:hidden;
   position:relative;
+  box-shadow:var(--shadow);
 }
 
 .location-image img{
@@ -942,15 +986,16 @@ h2{
   display:flex;
   align-items:flex-end;
   padding:30px;
-  background:linear-gradient(0deg,rgba(3,14,11,.95),transparent 65%);
+  background:linear-gradient(0deg,rgba(26,46,38,.9),transparent 65%);
 }
 
 .location-overlay h3{
   font-size:32px;
+  color:#fff;
 }
 
 .location-overlay p{
-  color:#c3cdc9;
+  color:rgba(255,255,255,.85);
   font-size:12px;
   margin:10px 0 20px;
 }
@@ -960,8 +1005,8 @@ h2{
 =========================== */
 
 .developer{
-  background:var(--cream);
-  color:#14251f;
+  background:var(--bg);
+  color:var(--ink);
   text-align:center;
 }
 
@@ -982,7 +1027,7 @@ h2{
 }
 
 .developer p{
-  color:#68756f;
+  color:var(--muted);
   line-height:1.9;
 }
 
@@ -990,16 +1035,22 @@ h2{
   display:inline-flex;
   align-items:center;
   gap:13px;
-  border:1px solid #d5c5ab;
+  border:1px solid var(--line);
   border-radius:50px;
   padding:14px 23px;
   margin-top:30px;
+  background:rgba(168,128,58,.06);
 }
 
 .experience strong{
   font-family:"Playfair Display",serif;
   font-size:27px;
-  color:#9b733a;
+  color:var(--gold);
+}
+
+.experience span{
+  color:var(--ink2);
+  font-size:12px;
 }
 
 /* ===========================
@@ -1009,7 +1060,7 @@ h2{
 .cta{
   padding:120px 0;
   background:
-  linear-gradient(90deg,rgba(3,16,12,.96),rgba(3,16,12,.48)),
+  linear-gradient(90deg,rgba(250,246,239,.95),rgba(250,246,239,.55)),
   url("Liberty_Heights_Balcony_View.png") center/cover;
 }
 
@@ -1017,8 +1068,12 @@ h2{
   max-width:650px;
 }
 
+.cta h2{
+  color:var(--ink);
+}
+
 .cta p{
-  color:#c2cbc7;
+  color:var(--muted);
   margin:18px 0 27px;
 }
 
@@ -1027,7 +1082,7 @@ h2{
 =========================== */
 
 footer{
-  background:#030b09;
+  background:var(--bg3);
   padding:60px 0 90px;
 }
 
@@ -1053,16 +1108,16 @@ footer h4{
 }
 
 footer p{
-  color:#83918c;
+  color:var(--muted);
   font-size:10px;
   line-height:1.8;
 }
 
 .disclaimer{
-  border-top:1px solid rgba(255,255,255,.07);
+  border-top:1px solid rgba(26,46,38,.1);
   margin-top:35px;
   padding-top:22px;
-  color:#62716c;
+  color:#8A948E;
   font-size:8px;
   line-height:1.8;
 }
@@ -1074,7 +1129,7 @@ footer p{
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.8);
+  background:rgba(26,46,38,.5);
   backdrop-filter:blur(10px);
   z-index:1000;
   display:none;
@@ -1089,11 +1144,12 @@ footer p{
 
 .modal-box{
   width:min(470px,100%);
-  background:#10251f;
+  background:var(--card);
   border:1px solid var(--line);
   border-radius:22px;
   padding:35px;
   position:relative;
+  box-shadow:0 30px 80px rgba(26,46,38,.2);
 }
 
 .close{
@@ -1102,7 +1158,7 @@ footer p{
   right:18px;
   border:0;
   background:none;
-  color:white;
+  color:var(--ink);
   font-size:26px;
 }
 
@@ -1115,6 +1171,7 @@ footer p{
 
 .modal h3{
   font-size:32px;
+  color:var(--ink);
 }
 
 .modal-box > p{
@@ -1127,15 +1184,19 @@ footer p{
   width:100%;
   padding:14px;
   margin-bottom:10px;
-  background:rgba(255,255,255,.04);
-  color:white;
-  border:1px solid rgba(255,255,255,.12);
+  background:rgba(26,46,38,.04);
+  color:var(--ink);
+  border:1px solid rgba(26,46,38,.15);
   border-radius:10px;
   outline:none;
 }
 
+.form-control::placeholder{
+  color:#9AA8A0;
+}
+
 select.form-control option{
-  color:black;
+  color:var(--ink);
 }
 
 .submit{
@@ -1144,8 +1205,13 @@ select.form-control option{
   border:0;
   border-radius:50px;
   background:var(--gold);
-  color:#102019;
+  color:#fff;
   font-weight:700;
+  transition:.3s;
+}
+
+.submit:hover{
+  background:var(--gold2);
 }
 
 /* ===========================
@@ -1155,7 +1221,7 @@ select.form-control option{
 .lightbox{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.94);
+  background:rgba(26,46,38,.92);
   z-index:1200;
   display:none;
   align-items:center;
@@ -1179,7 +1245,7 @@ select.form-control option{
   right:25px;
   border:0;
   background:none;
-  color:white;
+  color:#fff;
   font-size:34px;
 }
 
@@ -1262,10 +1328,10 @@ select.form-control option{
     right:12px;
     margin:0;
     padding:10px;
-    border:1px solid rgba(201,167,106,.18);
+    border:1px solid var(--line);
     border-radius:14px;
-    background:rgba(3,14,11,.97);
-    box-shadow:0 18px 45px rgba(0,0,0,.28);
+    background:rgba(250,246,239,.98);
+    box-shadow:0 18px 45px rgba(26,46,38,.15);
     flex-direction:column;
     align-items:stretch;
     gap:0;
@@ -1277,8 +1343,9 @@ select.form-control option{
 
   .header-nav a{
     padding:12px 10px;
-    border-bottom:1px solid rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(26,46,38,.08);
     font-size:11px;
+    color:var(--ink2);
   }
 
   .header-nav a:last-child{
@@ -1310,10 +1377,9 @@ select.form-control option{
 
   .hero-overlay{
     background:
-    linear-gradient(0deg,rgba(2,12,9,.97),rgba(2,12,9,.22) 80%);
+    linear-gradient(0deg,rgba(250,246,239,.97),rgba(250,246,239,.3) 80%);
   }
 
-  /* FIXED: Logo moved to very top, no overlap with title */
   .hero-top-logo{
     top:18px;
     left:15px;
@@ -1326,7 +1392,6 @@ select.form-control option{
     object-fit:contain;
   }
 
-  /* FIXED: Added top padding to clear the logo */
   .hero-content{
     padding-bottom:72px;
     padding-top:110px;
@@ -1477,8 +1542,8 @@ select.form-control option{
     right:0;
     height:61px;
     z-index:900;
-    background:#071713;
-    border-top:1px solid rgba(255,255,255,.1);
+    background:var(--card);
+    border-top:1px solid rgba(26,46,38,.1);
   }
 
   .mobile-actions a,
@@ -1487,16 +1552,16 @@ select.form-control option{
     align-items:center;
     justify-content:center;
     background:transparent;
-    color:white;
+    color:var(--ink);
     border:0;
-    border-right:1px solid rgba(255,255,255,.08);
+    border-right:1px solid rgba(26,46,38,.08);
     font-size:11px;
     font-weight:600;
   }
 
   .mobile-actions .enquire{
     background:var(--gold);
-    color:#102019;
+    color:#fff;
   }
 
 }
@@ -1883,7 +1948,7 @@ Check Availability
 
 </div>
 
-<p style="font-size:10px;color:#78827d;margin-top:18px;">
+<p style="font-size:10px;color:#8A948E;margin-top:18px;">
 *Prices are indicative and subject to availability/change.
 Please contact the sales team for current inventory and final pricing.
 </p>
@@ -1988,7 +2053,7 @@ Artist's Impression
 
 
 <!-- ======================================================
- AMENITIES WITH ALL AVAILABLE IMAGE PATHS
+ AMENITIES
 ====================================================== -->
 
 <section class="section amenities" id="amenities">
@@ -2407,7 +2472,7 @@ Enquire About This Floor
 
 
 <!-- ======================================================
- GALLERY - ALL IMAGE SOURCES
+ GALLERY
 ====================================================== -->
 
 <section class="section" id="gallery">
@@ -2602,7 +2667,7 @@ Everything within
 
 </div>
 
-<p style="font-size:9px;color:#70817a;margin-top:15px;">
+<p style="font-size:9px;color:#8A948E;margin-top:15px;">
 *Indicative travel times and subject to traffic conditions.
 </p>
 
@@ -2660,8 +2725,6 @@ Get Directions →
 <div class="container">
 
 <div class="developer-inner">
-
-<!-- URJHA LOGO SOURCE -->
 
 <img
 src="Urjha_Realty_Logo.png"
@@ -3150,7 +3213,7 @@ leadForm.addEventListener("submit", async function(e){
 
   if(!/^[6-9]\d{9}$/.test(phone)){
     formStatus.style.display = "block";
-    formStatus.style.color = "#ffb4b4";
+    formStatus.style.color = "#C0392B";
     formStatus.textContent = "Please enter a valid 10-digit mobile number.";
     return;
   }
@@ -3159,7 +3222,7 @@ leadForm.addEventListener("submit", async function(e){
   submitLead.disabled = true;
   submitLead.innerHTML = "Submitting...";
   formStatus.style.display = "block";
-  formStatus.style.color = "#ead19f";
+  formStatus.style.color = "#A8803A";
   formStatus.textContent = "Submitting your enquiry...";
 
   const leadData = {
@@ -3178,7 +3241,7 @@ leadForm.addEventListener("submit", async function(e){
       body:JSON.stringify(leadData)
     });
 
-    formStatus.style.color = "#b8e8c8";
+    formStatus.style.color = "#1E8449";
     formStatus.textContent = "Thank you! Your enquiry has been submitted.";
 
     const message = `Hello,
@@ -3205,7 +3268,7 @@ Please share latest pricing and availability.`;
 
   }catch(error){
     console.error("Lead submission error:",error);
-    formStatus.style.color = "#ffb4b4";
+    formStatus.style.color = "#C0392B";
     formStatus.textContent = "Unable to submit. Please call or WhatsApp us.";
     submitLead.disabled = false;
     submitLead.innerHTML = originalButtonText;
