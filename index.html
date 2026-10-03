@@ -21,20 +21,20 @@ content="Liberty Heights, Liberty Garden, Malad West. Premium 1 & 2 BHK residenc
 <style>
 
 :root{
-  --bg:#FAF6EF;
-  --bg2:#F3EDE0;
-  --bg3:#EDE5D3;
+  --bg:#FBFAF7;
+  --bg2:#F5F1E8;
+  --bg3:#EEE9DF;
   --card:#FFFFFF;
-  --ink:#1A2E26;
-  --ink2:#2A4038;
-  --muted:#5F6E66;
-  --gold:#A8803A;
-  --gold2:#8C6A2E;
-  --gold3:#C9A76A;
-  --line:rgba(168,128,58,.28);
-  --line2:rgba(26,46,38,.10);
+  --ink:#23312C;
+  --ink2:#3B4B45;
+  --muted:#69736F;
+  --gold:#B58A45;
+  --gold2:#967039;
+  --gold3:#D7B77D;
+  --line:rgba(181,138,69,.22);
+  --line2:rgba(35,49,44,.09);
   --radius:22px;
-  --shadow:0 20px 60px rgba(26,46,38,.08);
+  --shadow:0 18px 55px rgba(46,39,27,.08);
 }
 
 *{
@@ -137,9 +137,9 @@ h2{
   left:0;
   right:0;
   z-index:950;
-  height:78px;
-  background:rgba(250,246,239,.92);
-  border-bottom:1px solid rgba(168,128,58,.22);
+  height:82px;
+  background:rgba(255,253,249,.94);
+  border-bottom:1px solid rgba(181,138,69,.18);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
 }
@@ -159,9 +159,19 @@ h2{
   align-items:center;
 }
 
+
+.header-logo{
+  padding:5px 10px;
+  border-radius:14px;
+  transition:.25s ease;
+}
+.header-logo:hover{
+  background:rgba(181,138,69,.06);
+}
+
 .header-logo img{
-  width:118px;
-  max-height:58px;
+  width:132px;
+  max-height:64px;
   object-fit:contain;
 }
 
@@ -173,7 +183,7 @@ h2{
 }
 
 .header-nav a{
-  color:rgba(26,46,38,.72);
+  color:rgba(35,49,44,.72);
   font-size:11px;
   font-weight:600;
   transition:.25s;
@@ -186,14 +196,15 @@ h2{
 
 .header-visit{
   flex:0 0 auto;
-  min-height:42px;
-  padding:0 19px;
+  min-height:44px;
+  padding:0 21px;
   border:0;
   border-radius:50px;
   background:var(--gold);
   color:#fff;
   font-size:11px;
   font-weight:700;
+  letter-spacing:.15px;
   white-space:nowrap;
   transition:.25s;
 }
@@ -207,9 +218,9 @@ h2{
   display:none;
   width:40px;
   height:40px;
-  border:1px solid rgba(26,46,38,.18);
+  border:1px solid rgba(35,49,44,.14);
   border-radius:50%;
-  background:rgba(26,46,38,.04);
+  background:rgba(35,49,44,.035);
   color:var(--ink);
   font-size:20px;
   line-height:1;
@@ -233,6 +244,7 @@ h2{
 .hero{
   height:100svh;
   min-height:700px;
+  padding-top:82px;
   position:relative;
   display:flex;
   align-items:flex-end;
@@ -251,11 +263,12 @@ h2{
   position:absolute;
   inset:0;
   background:
-  linear-gradient(90deg,rgba(250,246,239,.92),rgba(250,246,239,.55) 48%,rgba(250,246,239,.15)),
-  linear-gradient(0deg,rgba(250,246,239,.95),transparent 58%);
+  linear-gradient(90deg,rgba(255,253,249,.96) 0%,rgba(255,253,249,.82) 30%,rgba(255,253,249,.38) 60%,rgba(255,253,249,.08) 100%),
+  linear-gradient(0deg,rgba(251,250,247,.94) 0%,rgba(251,250,247,.18) 58%,transparent 78%);
 }
 
 .hero-top-logo{
+  display:none;
   position:absolute;
   z-index:3;
   top:28px;
@@ -274,12 +287,13 @@ h2{
   z-index:2;
   padding-bottom:78px;
   max-width:850px;
+  text-shadow:0 1px 0 rgba(255,255,255,.28);
 }
 
 .hero-label{
   display:inline-block;
-  border:1px solid rgba(168,128,58,.5);
-  background:rgba(255,255,255,.55);
+  border:1px solid rgba(181,138,69,.42);
+  background:rgba(255,255,255,.72);
   backdrop-filter:blur(10px);
   padding:8px 15px;
   border-radius:50px;
@@ -309,7 +323,7 @@ h2{
 }
 
 .hero-location{
-  color:rgba(26,46,38,.65);
+  color:rgba(35,49,44,.66);
   margin-bottom:28px;
   font-size:14px;
 }
@@ -322,7 +336,7 @@ h2{
 
 .hero-stat{
   padding:0 25px;
-  border-right:1px solid rgba(26,46,38,.15);
+  border-right:1px solid rgba(35,49,44,.12);
 }
 
 .hero-stat:first-child{
@@ -376,9 +390,9 @@ h2{
 }
 
 .btn-outline{
-  border:1px solid rgba(26,46,38,.3);
+  border:1px solid rgba(35,49,44,.22);
   color:var(--ink);
-  background:rgba(255,255,255,.5);
+  background:rgba(255,255,255,.74);
   backdrop-filter:blur(8px);
 }
 
@@ -481,7 +495,7 @@ h2{
 
 .feature{
   border:1px solid var(--line);
-  background:rgba(255,255,255,.6);
+  background:rgba(255,255,255,.82);
   padding:16px;
   border-radius:13px;
   font-size:12px;
@@ -846,7 +860,7 @@ h2{
 
 .floor-image{
   min-height:540px;
-  background:#F0EAE0;
+  background:#F7F3EC;
   border-radius:14px;
   display:flex;
   align-items:center;
@@ -1184,7 +1198,7 @@ footer p{
   width:100%;
   padding:14px;
   margin-bottom:10px;
-  background:rgba(26,46,38,.04);
+  background:rgba(35,49,44,.035);
   color:var(--ink);
   border:1px solid rgba(26,46,38,.15);
   border-radius:10px;
@@ -1330,8 +1344,8 @@ select.form-control option{
     padding:10px;
     border:1px solid var(--line);
     border-radius:14px;
-    background:rgba(250,246,239,.98);
-    box-shadow:0 18px 45px rgba(26,46,38,.15);
+    background:rgba(255,253,249,.985);
+    box-shadow:0 18px 45px rgba(46,39,27,.12);
     flex-direction:column;
     align-items:stretch;
     gap:0;
@@ -1373,11 +1387,12 @@ select.form-control option{
 
   .hero{
     min-height:700px;
+    padding-top:68px;
   }
 
   .hero-overlay{
     background:
-    linear-gradient(0deg,rgba(250,246,239,.97),rgba(250,246,239,.3) 80%);
+    linear-gradient(0deg,rgba(255,253,249,.98) 0%,rgba(255,253,249,.78) 45%,rgba(255,253,249,.20) 82%);
   }
 
   .hero-top-logo{
