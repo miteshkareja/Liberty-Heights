@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#F7F9F8">
+<meta name="theme-color" content="#FAF6EF">
 
 <link rel="icon" type="image/png" href="Urjha_Realty_Logo.png">
 <link rel="shortcut icon" type="image/png" href="Urjha_Realty_Logo.png">
@@ -2286,68 +2286,51 @@ footer h4{
 
 
 /* ==========================================================
-   FINAL LIGHT THEME — HIGH CONTRAST / VIDEO FIRST
-   This override intentionally makes the new design visibly
-   different while preserving all HTML content and JS logic.
+   FINAL TEXT CONTRAST PATCH
+   Keep existing light theme/layout/video styling unchanged.
+   Only strengthen text/accent readability.
 ========================================================== */
 
 :root{
-  --bg:#F8FAF9;
-  --bg2:#EEF3F1;
-  --bg3:#E5ECE9;
-  --card:#FFFFFF;
+  --ink:#10272E;
+  --ink2:#223B42;
+  --muted:#465A60;
 
-  --ink:#14272E;
-  --ink2:#30464D;
-  --muted:#53666C;
-
-  /* Existing classes still use the variable name "gold",
-     but the visual accent is now a darker premium sage/teal. */
-  --gold:#3F6B63;
-  --gold2:#2E554F;
-  --gold3:#789B92;
-
-  --line:rgba(63,107,99,.22);
-  --line2:rgba(20,39,46,.10);
-
-  --radius:22px;
-  --shadow:0 18px 50px rgba(23,49,56,.08);
+  /* Existing "gold" classes are retained structurally,
+     but use a deeper premium teal for better readability. */
+  --gold:#315E55;
+  --gold2:#244D46;
+  --gold3:#698A82;
 }
 
-/* ---------- GLOBAL ---------- */
-
-html,
-body{
-  background:#F8FAF9;
+/* IMPORTANT: keep hero free of any white/glass card */
+.hero-content{
+  background:transparent !important;
+  border:none !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  margin-bottom:0 !important;
 }
 
-body{
-  color:#14272E;
-}
-
-h1,h2,h3,
+/* Main headings */
+h1,
+h2,
+h3,
+.hero h1,
 .config-card h3,
 .amenity-copy h3,
 .all-title h3,
 .floor-info h3,
 .developer h2,
 .cta h2{
-  color:#14272E;
+  color:#10272E !important;
 }
 
-.section-heading p,
-.overview-copy p,
-.amenity-copy p,
-.floor-info > p,
-.developer p,
-.cta p{
-  color:#4D6066;
-}
-
-.gold{
-  color:#3F6B63;
-}
-
+/* Accent words such as "Heights", highlighted section words, labels */
+.gold,
+.hero h1 span,
 .eyebrow,
 .config-section .eyebrow,
 .floor-section .eyebrow,
@@ -2355,528 +2338,229 @@ h1,h2,h3,
 .all-title span,
 .bhk-label,
 .config-type{
-  color:#355F58;
+  color:#315E55 !important;
 }
 
+/* Decorative accent lines */
 .eyebrow:before,
 .config-section .eyebrow:before,
 .floor-section .eyebrow:before{
-  background:#6F9289;
+  background:#557C72 !important;
 }
 
-/* ---------- FIXED HEADER ---------- */
-
-.site-header{
-  background:rgba(255,255,255,.97);
-  border-bottom:1px solid rgba(20,39,46,.08);
-  box-shadow:0 7px 30px rgba(20,39,46,.07);
-}
-
-.header-logo:hover{
-  background:#F1F5F3;
-}
-
-.header-nav a{
-  color:#31474E;
-  font-weight:650;
-}
-
-.header-nav a:hover{
-  color:#244F49;
-}
-
-.header-visit{
-  background:#173B44;
-  color:#FFFFFF;
-  box-shadow:0 8px 22px rgba(23,59,68,.18);
-}
-
-.header-visit:hover{
-  background:#102E36;
-}
-
-.header-menu-btn{
-  border-color:rgba(20,39,46,.15);
-  background:#F2F5F4;
-  color:#173B44;
-}
-
-/* ---------- HERO ----------
-   Main change: almost no white wash over the video.
-   Readability comes from a dedicated light glass panel behind
-   the text instead of bleaching the whole video.
------------------------------------------------------------ */
-
-.hero-overlay{
-  background:
-    linear-gradient(90deg,
-      rgba(247,249,248,.16) 0%,
-      rgba(247,249,248,.08) 36%,
-      rgba(247,249,248,.02) 62%,
-      transparent 100%),
-    linear-gradient(0deg,
-      rgba(13,30,34,.18) 0%,
-      transparent 42%);
-}
-
-.hero-content{
-  max-width:790px;
-  margin-bottom:34px;
-  padding:34px 38px 36px;
-  border:1px solid rgba(255,255,255,.74);
-  border-radius:28px;
-  background:rgba(255,255,255,.84);
-  box-shadow:
-    0 24px 70px rgba(17,40,47,.16),
-    inset 0 1px 0 rgba(255,255,255,.92);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  text-shadow:none;
-}
-
-.hero-label{
-  color:#315D56;
-  border-color:rgba(63,107,99,.32);
-  background:#F3F7F5;
-  font-weight:750;
-}
-
-.hero h1{
-  color:#10272F;
-  text-shadow:none;
-}
-
-.hero h1 span{
-  color:#3A665E;
-}
-
+/* Hero copy — deliberately dark for visibility over the light video */
 .hero-subtitle{
-  color:#223B42;
+  color:#19353C !important;
   font-weight:600;
 }
 
 .hero-location{
-  color:#435A60;
+  color:#344B51 !important;
   font-weight:500;
 }
 
-.hero-stat{
-  border-right-color:rgba(20,39,46,.14);
-}
-
 .hero-stat strong{
-  color:#14272E;
+  color:#10272E !important;
   font-weight:750;
 }
 
 .hero-stat small{
-  color:#52666B;
+  color:#43585E !important;
   font-weight:650;
 }
 
-.btn-gold{
-  background:#173B44;
-  color:#FFFFFF;
-  box-shadow:0 10px 25px rgba(23,59,68,.16);
-}
-
-.btn-gold:hover{
-  background:#102E36;
-}
-
-.btn-outline{
-  color:#173B44;
-  border:1px solid rgba(23,59,68,.24);
-  background:#FFFFFF;
-  backdrop-filter:none;
-}
-
-.btn-outline:hover{
-  color:#244F49;
-  border-color:#3F6B63;
-  background:#F4F7F6;
-}
-
-/* ---------- QUICK INFO ---------- */
-
-.quick-grid{
-  background:#FFFFFF;
-  border:1px solid rgba(20,39,46,.08);
-  box-shadow:0 18px 48px rgba(20,39,46,.08);
-}
-
-.quick-item{
-  border-right-color:rgba(20,39,46,.08);
-}
-
-.quick-item strong{
-  color:#173B44;
+.hero-label{
+  color:#315E55 !important;
   font-weight:750;
 }
 
-.quick-item span{
-  color:#53666C;
-  font-weight:600;
-}
-
-/* ---------- OVERVIEW ---------- */
-
-.image-wrap{
-  box-shadow:0 20px 55px rgba(20,39,46,.10);
-}
-
-.feature{
-  border:1px solid rgba(20,39,46,.09);
-  background:#FFFFFF;
-  color:#2D444B;
-  box-shadow:0 8px 22px rgba(20,39,46,.035);
-}
-
-.feature b{
-  color:#3F6B63;
-}
-
-/* ---------- RESIDENCE / PRICING ---------- */
-
-.config-section{
-  background:#EEF3F1;
-}
-
-.config-card{
-  background:#FFFFFF;
-  border:1px solid rgba(20,39,46,.09);
-  box-shadow:0 10px 30px rgba(20,39,46,.045);
-}
-
-.config-card:hover{
-  box-shadow:0 20px 48px rgba(20,39,46,.10);
-}
-
-.carpet{
-  color:#52656A;
-  border-color:rgba(20,39,46,.09);
-}
-
-.price{
-  color:#173B44;
-}
-
-.config-card button{
-  border-color:#3F6B63;
-  color:#315D56;
-  background:#FFFFFF;
-}
-
-.config-card button:hover{
-  background:#315D56;
-  color:#FFFFFF;
-}
-
-/* ---------- RESIDENCE IMAGE CARDS ---------- */
-
-.residence-card{
-  box-shadow:0 18px 45px rgba(20,39,46,.10);
-}
-
-.card-gradient{
-  background:linear-gradient(0deg,rgba(7,27,33,.82),rgba(7,27,33,.10) 58%,transparent 78%);
-}
-
-.card-copy h3{
-  color:#FFFFFF;
-  text-shadow:0 2px 12px rgba(0,0,0,.40);
-}
-
-.card-copy p{
-  color:#FFFFFF;
-  text-shadow:0 2px 8px rgba(0,0,0,.45);
-}
-
-/* ---------- AMENITIES ---------- */
-
-.amenities{
-  background:#F3F6F5;
-}
-
-.amenity-feature{
-  background:#FFFFFF;
-  border-color:rgba(20,39,46,.08);
-  box-shadow:0 16px 45px rgba(20,39,46,.07);
-}
-
-.tags span{
-  color:#315D56;
-  border-color:rgba(63,107,99,.26);
-  background:#EDF4F1;
+/* Header */
+.header-nav a{
+  color:#30464C !important;
   font-weight:650;
 }
 
-.amenity-small{
-  background:#FFFFFF;
-  border-color:rgba(20,39,46,.08);
-  box-shadow:0 8px 24px rgba(20,39,46,.035);
+.header-nav a:hover{
+  color:#244D46 !important;
+}
+
+/* Section body text */
+.section-heading p,
+.overview-copy p,
+.amenity-copy p,
+.floor-info > p,
+.developer p,
+.cta p,
+footer p{
+  color:#465A60 !important;
+}
+
+/* Overview feature text */
+.feature{
+  color:#263F46 !important;
+}
+
+.feature b{
+  color:#315E55 !important;
+}
+
+/* Pricing / configuration */
+.carpet{
+  color:#4A5E63 !important;
+}
+
+.price{
+  color:#173C45 !important;
+}
+
+.config-card button{
+  color:#315E55 !important;
+  border-color:#557C72 !important;
+}
+
+.config-card button:hover{
+  color:#FFFFFF !important;
+  background:#315E55 !important;
+}
+
+/* Residence image text stays white over images */
+.card-copy h3{
+  color:#FFFFFF !important;
+  text-shadow:0 2px 12px rgba(0,0,0,.45);
+}
+
+.card-copy p{
+  color:#FFFFFF !important;
+  text-shadow:0 2px 8px rgba(0,0,0,.48);
+}
+
+/* Amenities */
+.tags span{
+  color:#315E55 !important;
+  border-color:rgba(49,94,85,.30) !important;
 }
 
 .amenity-small h3{
-  color:#14272E;
-  font-weight:700;
+  color:#10272E !important;
 }
 
 .amenity-small p{
-  color:#52656A;
+  color:#495D62 !important;
 }
 
-/* ---------- FLOOR PLANS ---------- */
-
-.floor-section{
-  background:#F9FBFA;
-}
-
+/* Floor plans */
 .floor-tab{
-  color:#2E474E;
-  border-color:rgba(63,107,99,.30);
-  background:#FFFFFF;
-}
-
-.floor-tab:hover{
-  color:#244F49;
-  border-color:#3F6B63;
+  color:#293F45 !important;
 }
 
 .floor-tab.active{
-  color:#FFFFFF;
-  background:#173B44;
-  border-color:#173B44;
-}
-
-.floor-box{
-  background:#FFFFFF;
-  border-color:rgba(20,39,46,.08);
-  box-shadow:0 18px 48px rgba(20,39,46,.08);
-}
-
-.floor-image{
-  background:#F1F5F3;
-}
-
-.floor-info > p{
-  color:#52656A;
+  color:#FFFFFF !important;
 }
 
 .floor-row{
-  color:#31484F;
-  border-bottom-color:rgba(20,39,46,.09);
+  color:#30464C !important;
 }
 
 .floor-row strong{
-  color:#14272E;
+  color:#10272E !important;
 }
 
-/* ---------- GALLERY ---------- */
-
-.gallery{
-  box-shadow:0 14px 38px rgba(20,39,46,.10);
-}
-
-.gallery-label{
-  background:rgba(13,37,43,.82);
-  color:#FFFFFF;
-}
-
-/* ---------- LOCATION ---------- */
-
-.location{
-  background:#EAF0EE;
-}
-
+/* Location */
 .connect{
-  color:#2E464D;
-  border-bottom-color:rgba(20,39,46,.10);
+  color:#293F45 !important;
 }
 
 .connect b{
-  color:#315D56;
+  color:#315E55 !important;
 }
 
-.location-image{
-  box-shadow:0 18px 50px rgba(20,39,46,.11);
-}
-
-.location-overlay{
-  background:linear-gradient(0deg,rgba(10,34,40,.93),rgba(10,34,40,.12) 68%);
-}
-
-/* ---------- DEVELOPER ---------- */
-
-.developer{
-  background:#F8FAF9;
-}
-
-.experience{
-  background:#EDF4F1;
-  border-color:rgba(63,107,99,.25);
-}
-
+/* Developer */
 .experience strong{
-  color:#315D56;
+  color:#315E55 !important;
 }
 
 .experience span{
-  color:#30464D;
+  color:#30464C !important;
 }
 
-/* ---------- CTA ---------- */
-
-.cta{
-  background:
-    linear-gradient(90deg,
-      rgba(255,255,255,.93) 0%,
-      rgba(255,255,255,.84) 42%,
-      rgba(255,255,255,.30) 72%,
-      rgba(255,255,255,.06) 100%),
-    url("Liberty_Heights_Balcony_View.png") center/cover;
-}
-
-.cta-inner{
-  padding:30px 32px;
-  border-radius:24px;
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(255,255,255,.72);
-  box-shadow:0 20px 55px rgba(20,39,46,.11);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-}
-
-/* ---------- FOOTER ---------- */
-
-footer{
-  background:#E4EBE8;
-}
-
+/* Footer / form readability */
 footer h4{
-  color:#315D56;
-}
-
-footer p{
-  color:#506369;
+  color:#315E55 !important;
 }
 
 .disclaimer{
-  color:#617378;
-  border-top-color:rgba(20,39,46,.10);
-}
-
-/* ---------- MODAL ---------- */
-
-.modal{
-  background:rgba(13,37,43,.55);
-}
-
-.modal-box{
-  background:#FFFFFF;
-  border-color:rgba(20,39,46,.10);
-  box-shadow:0 30px 85px rgba(20,39,46,.24);
+  color:#5C6C70 !important;
 }
 
 .modal h3{
-  color:#14272E;
+  color:#10272E !important;
 }
 
 .modal-box > p{
-  color:#52656A;
+  color:#465A60 !important;
 }
 
 .form-control{
-  color:#14272E;
-  background:#F5F8F7;
-  border-color:rgba(20,39,46,.14);
+  color:#10272E !important;
 }
 
 .form-control::placeholder{
-  color:#748388;
+  color:#728084 !important;
 }
 
-.form-control:focus{
-  border-color:#3F6B63;
-  box-shadow:0 0 0 3px rgba(63,107,99,.11);
+/* Button contrast */
+.btn-gold,
+.header-visit,
+.submit,
+.mobile-actions .enquire{
+  background:#173C45 !important;
+  color:#FFFFFF !important;
 }
 
-.submit{
-  background:#173B44;
-  color:#FFFFFF;
-}
-
+.btn-gold:hover,
+.header-visit:hover,
 .submit:hover{
-  background:#102E36;
+  background:#102D35 !important;
 }
 
-/* ---------- MOBILE ---------- */
+.btn-outline{
+  color:#173C45 !important;
+  border-color:rgba(23,60,69,.30) !important;
+}
 
+/* Mobile: no card, same light theme, stronger text */
 @media(max-width:650px){
-
-  .header-nav{
-    background:rgba(255,255,255,.99);
-    border-color:rgba(20,39,46,.10);
-    box-shadow:0 18px 45px rgba(20,39,46,.14);
-  }
-
-  .header-nav a{
-    color:#2E464D;
-    border-bottom-color:rgba(20,39,46,.08);
-    font-weight:650;
-  }
-
-  .hero-overlay{
-    background:
-      linear-gradient(0deg,
-        rgba(14,33,38,.12) 0%,
-        rgba(14,33,38,.02) 50%,
-        transparent 100%);
-  }
-
   .hero-content{
-    width:100%;
-    margin-bottom:8px;
-    padding:24px 20px 26px;
-    border-radius:22px;
-    background:rgba(255,255,255,.90);
-    border:1px solid rgba(255,255,255,.82);
-    box-shadow:0 18px 48px rgba(13,37,43,.18);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
   }
 
   .hero h1{
-    color:#10272F;
+    color:#10272E !important;
   }
 
   .hero h1 span{
-    color:#315D56;
+    color:#315E55 !important;
   }
 
   .hero-subtitle{
-    color:#223B42;
+    color:#19353C !important;
   }
 
   .hero-location{
-    color:#435A60;
+    color:#344B51 !important;
   }
 
-  .mobile-actions{
-    background:#FFFFFF;
-    border-top-color:rgba(20,39,46,.10);
-    box-shadow:0 -10px 28px rgba(20,39,46,.09);
+  .header-nav a{
+    color:#293F45 !important;
   }
 
   .mobile-actions a,
   .mobile-actions button{
-    color:#173B44;
-    border-right-color:rgba(20,39,46,.08);
-  }
-
-  .mobile-actions .enquire{
-    background:#173B44;
-    color:#FFFFFF;
+    color:#173C45 !important;
   }
 }
 
