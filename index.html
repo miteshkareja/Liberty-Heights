@@ -2027,6 +2027,263 @@ footer p{
   }
 }
 
+
+/* ==========================================================
+   LIGHT THEME V3 — STRONGER TEXT CONTRAST + MORE VISIBLE VIDEO
+   Visual-only override. Existing structure/functionality kept.
+========================================================== */
+
+:root{
+  --ink:#102B33;
+  --ink2:#29434A;
+  --muted:#53676B;
+
+  --gold:#5F7D70;
+  --gold2:#47685C;
+  --gold3:#87A095;
+
+  --line:rgba(71,104,92,.28);
+  --line2:rgba(16,43,51,.11);
+}
+
+/* Stronger global text visibility */
+body{
+  color:var(--ink);
+}
+
+h1,h2,h3{
+  color:var(--ink);
+}
+
+.section-heading p,
+.overview-copy p,
+.amenity-copy p,
+.floor-info > p,
+.developer p,
+.cta p,
+footer p{
+  color:var(--muted);
+}
+
+/* Accent text darker and more readable */
+.gold,
+.eyebrow,
+.config-section .eyebrow,
+.floor-section .eyebrow,
+.amenity-number,
+.all-title span,
+.bhk-label{
+  color:#4F7164;
+}
+
+/* Header */
+.header-nav a{
+  color:#3F555B;
+}
+
+.header-nav a:hover{
+  color:#2E5B50;
+}
+
+/* HERO — make video around 20% more visible */
+.hero-overlay{
+  background:
+    linear-gradient(90deg,
+      rgba(252,253,251,.83) 0%,
+      rgba(252,253,251,.72) 25%,
+      rgba(252,253,251,.42) 48%,
+      rgba(252,253,251,.10) 72%,
+      rgba(252,253,251,.02) 100%),
+    linear-gradient(0deg,
+      rgba(251,252,250,.60) 0%,
+      rgba(251,252,250,.05) 42%,
+      transparent 70%);
+}
+
+.hero-label{
+  color:#47685C;
+  border-color:rgba(71,104,92,.42);
+  background:rgba(255,255,255,.74);
+}
+
+.hero h1{
+  color:#102B33;
+  text-shadow:0 1px 0 rgba(255,255,255,.18);
+}
+
+.hero h1 span{
+  color:#628174;
+}
+
+.hero-subtitle{
+  color:#233E45;
+}
+
+.hero-location{
+  color:#4A6065;
+}
+
+.hero-stat strong{
+  color:#102B33;
+}
+
+.hero-stat small{
+  color:#566B6F;
+}
+
+/* Buttons */
+.btn-outline{
+  color:#203F46;
+  border-color:rgba(16,43,51,.28);
+}
+
+.btn-outline:hover{
+  color:#2E5B50;
+  border-color:#5F7D70;
+}
+
+/* Quick stats */
+.quick-item strong{
+  color:#234A52;
+}
+
+.quick-item span{
+  color:#5B7074;
+}
+
+/* Overview */
+.feature{
+  color:#29434A;
+}
+
+/* Pricing cards */
+.config-type{
+  color:#4F7164;
+}
+
+.config-card h3{
+  color:#102B33;
+}
+
+.carpet{
+  color:#5B6F73;
+}
+
+.price{
+  color:#234A52;
+}
+
+/* Residence image captions */
+.card-copy h3{
+  color:#FFFFFF;
+  text-shadow:0 2px 10px rgba(0,0,0,.28);
+}
+
+.card-copy p{
+  color:rgba(255,255,255,.94);
+  text-shadow:0 1px 8px rgba(0,0,0,.24);
+}
+
+/* Amenities */
+.amenity-copy h3,
+.all-title h3,
+.amenity-small h3{
+  color:#102B33;
+}
+
+.tags span{
+  color:#355F54;
+  border-color:rgba(79,113,100,.32);
+  background:#F1F6F3;
+}
+
+.amenity-small p{
+  color:#596D71;
+}
+
+/* Floor plans */
+.floor-tab{
+  color:#344F56;
+}
+
+.floor-info h3{
+  color:#102B33;
+}
+
+.floor-row{
+  color:#334D54;
+}
+
+.floor-row strong{
+  color:#102B33;
+}
+
+/* Location */
+.connect{
+  color:#29434A;
+}
+
+.connect b{
+  color:#355F54;
+}
+
+/* Developer */
+.experience strong{
+  color:#355F54;
+}
+
+.experience span{
+  color:#344F56;
+}
+
+/* Footer */
+footer h4{
+  color:#355F54;
+}
+
+.disclaimer{
+  color:#65777A;
+}
+
+/* Modal */
+.modal h3{
+  color:#102B33;
+}
+
+.modal-box > p{
+  color:#596D71;
+}
+
+.form-control{
+  color:#102B33;
+}
+
+.form-control::placeholder{
+  color:#7C8C8F;
+}
+
+/* Mobile — preserve visibility and increase video presence */
+@media(max-width:650px){
+
+  .hero-overlay{
+    background:
+      linear-gradient(0deg,
+        rgba(251,252,250,.88) 0%,
+        rgba(251,252,250,.78) 38%,
+        rgba(251,252,250,.38) 72%,
+        rgba(251,252,250,.08) 100%);
+  }
+
+  .header-nav a{
+    color:#29434A;
+  }
+
+  .mobile-actions a,
+  .mobile-actions button{
+    color:#203F46;
+  }
+}
+
 </style>
 </head>
 
